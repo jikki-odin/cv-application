@@ -1,20 +1,26 @@
+// import { useState } from "react";
+
 import ContactInfo from "./sections/ContactInfo";
 import Education from "./sections/Education";
 import WorkExperience from "./sections/WorkExperience";
 import Section from "./Section";
 
 export default function CVApplication() {
+  const editing = false;
+  // const [editing, setEditing] = useState(true);
+
   return (
     <>
       <Section title="Contact Info">
-        <ContactInfo />
+        <ContactInfo editing={editing} />
       </Section>
       <Section title="Education">
-        <Education />
+        <Education editing={editing} />
       </Section>
       <Section title="WorkExperience">
-        <WorkExperience />
+        <WorkExperience editing={editing} />
       </Section>
+      <button type="submit">Save</button>
     </>
   );
 }
