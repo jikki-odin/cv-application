@@ -1,19 +1,19 @@
-let applicant = {
+const baseApplicant = {
   contactInfo: {
-    name: "John Smith",
-    phone: "1234567890",
-    email: "hello@world.com",
+    name: "",
+    phone: "",
+    email: "",
   },
   education: {
-    schoolName: "Duke University",
-    titleOfStudy: "Chemistry",
-    graduationDate: "May 2016",
+    schoolName: "",
+    titleOfStudy: "",
+    graduationDate: "",
   },
   workExperience: {
-    companyName: "Company Ltd.",
-    positionTitle: "Software Engineer",
-    startDate: "June 2016",
+    companyName: "",
+    positionTitle: "",
+    startDate: "",
   },
 };
 
-export default applicant;
+export default baseApplicant;

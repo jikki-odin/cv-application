@@ -1,20 +1,39 @@
-export default function ContactInfo({ editing, contactInfo }) {
+export default function ContactInfo({
+  editing,
+  contactInfo,
+  onNameChange,
+  onPhoneChange,
+  onEmailChange,
+}) {
   const { name, phone, email } = contactInfo;
 
   return (
     <form>
       <div>
         <label for="name">Name: </label>
-        {editing ? <input name="name" value={name}></input> : name}
+        {editing ? (
+          <input name="name" value={name} onChange={onNameChange}></input>
+        ) : (
+          name
+        )}
       </div>
       <div>
         <label for="phone">Phone: </label>
-        {editing ? <input name="phone" value={phone}></input> : phone}
+        {editing ? (
+          <input name="phone" value={phone} onChange={onPhoneChange}></input>
+        ) : (
+          phone
+        )}
       </div>
       <div>
         <label for="email">Email Address: </label>
         {editing ? (
-          <input type="email" name="email" value={email}></input>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={onEmailChange}
+          ></input>
         ) : (
           email
         )}

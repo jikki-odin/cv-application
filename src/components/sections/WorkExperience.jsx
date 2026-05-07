@@ -1,4 +1,10 @@
-export default function WorkExperience({ editing, workExperience }) {
+export default function WorkExperience({
+  editing,
+  workExperience,
+  onCompanyNameChange,
+  onPositionTitleChange,
+  onStartDateChange,
+}) {
   const { companyName, positionTitle, startDate } = workExperience;
 
   return (
@@ -6,7 +12,11 @@ export default function WorkExperience({ editing, workExperience }) {
       <div>
         <label for="companyName">Company Name: </label>
         {editing ? (
-          <input name="companyName" value={companyName}></input>
+          <input
+            name="companyName"
+            value={companyName}
+            onChange={onCompanyNameChange}
+          ></input>
         ) : (
           companyName
         )}
@@ -14,7 +24,11 @@ export default function WorkExperience({ editing, workExperience }) {
       <div>
         <label for="positionTitle">Position Title: </label>
         {editing ? (
-          <input name="positionTitle" value={positionTitle}></input>
+          <input
+            name="positionTitle"
+            value={positionTitle}
+            onChange={onPositionTitleChange}
+          ></input>
         ) : (
           positionTitle
         )}
@@ -22,7 +36,11 @@ export default function WorkExperience({ editing, workExperience }) {
       <div>
         <label for="startDate">Start Date: </label>
         {editing ? (
-          <input name="startDate" value={startDate}></input>
+          <input
+            name="startDate"
+            value={startDate}
+            onChange={onStartDateChange}
+          ></input>
         ) : (
           startDate
         )}

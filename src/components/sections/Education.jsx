@@ -1,4 +1,10 @@
-export default function Education({ editing, education }) {
+export default function Education({
+  editing,
+  education,
+  onSchoolNameChange,
+  onTitleOfStudyChange,
+  onGraduationDateChange,
+}) {
   const { schoolName, titleOfStudy, graduationDate } = education;
 
   return (
@@ -6,7 +12,11 @@ export default function Education({ editing, education }) {
       <div>
         <label for="schoolName">School Name: </label>
         {editing ? (
-          <input name="schoolName" value={schoolName}></input>
+          <input
+            name="schoolName"
+            value={schoolName}
+            onChange={onSchoolNameChange}
+          ></input>
         ) : (
           schoolName
         )}
@@ -14,7 +24,11 @@ export default function Education({ editing, education }) {
       <div>
         <label for="titleOfStudy">Title of Study: </label>
         {editing ? (
-          <input name="titleOfStudy" value={titleOfStudy}></input>
+          <input
+            name="titleOfStudy"
+            value={titleOfStudy}
+            onChange={onTitleOfStudyChange}
+          ></input>
         ) : (
           titleOfStudy
         )}
@@ -22,7 +36,11 @@ export default function Education({ editing, education }) {
       <div>
         <label for="graduationDate">Graduation Date: </label>
         {editing ? (
-          <input name="graduationDate" value={graduationDate}></input>
+          <input
+            name="graduationDate"
+            value={graduationDate}
+            onChange={onGraduationDateChange}
+          ></input>
         ) : (
           graduationDate
         )}
