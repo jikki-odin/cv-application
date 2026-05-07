@@ -1,21 +1,31 @@
-export default function WorkExperience({ editing }) {
-  const companyName = "Company Ltd.";
-  const positionTitle = "Software Engineer";
-  const startDate = "June 2016";
+export default function WorkExperience({ editing, workExperience }) {
+  const { companyName, positionTitle, startDate } = workExperience;
 
   return (
     <form>
       <div>
         <label for="companyName">Company Name: </label>
-        {editing ? <input name="companyName"></input> : companyName}
+        {editing ? (
+          <input name="companyName" value={companyName}></input>
+        ) : (
+          companyName
+        )}
       </div>
       <div>
         <label for="positionTitle">Position Title: </label>
-        {editing ? <input name="positionTitle"></input> : positionTitle}
+        {editing ? (
+          <input name="positionTitle" value={positionTitle}></input>
+        ) : (
+          positionTitle
+        )}
       </div>
       <div>
         <label for="startDate">Start Date: </label>
-        {editing ? <input name="startDate"></input> : startDate}
+        {editing ? (
+          <input name="startDate" value={startDate}></input>
+        ) : (
+          startDate
+        )}
       </div>
     </form>
   );
