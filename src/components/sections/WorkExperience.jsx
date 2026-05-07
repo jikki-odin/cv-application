@@ -7,6 +7,9 @@ export default function WorkExperience({
 }) {
   const { companyName, positionTitle, startDate } = workExperience;
 
+  // TODO: add job responsibilities dynamic bullet list
+  // TODO: support multiple jobs
+  // TODO: handle dates with inputs and date types
   return (
     <form>
       <div>

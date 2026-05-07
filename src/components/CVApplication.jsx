@@ -14,6 +14,8 @@ export default function CVApplication() {
     setEditing(!editing);
   }
 
+  // TODO: add styling!
+  // TODO: add empty state page w/control flow
   // TODO: simplify this handler structure!!! Oh so gross...
   function handleNameChange(e) {
     setApplicant({

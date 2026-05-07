@@ -7,6 +7,8 @@ export default function Education({
 }) {
   const { schoolName, titleOfStudy, graduationDate } = education;
 
+  // TODO: support multiple education sources with dynamic add
+  // TODO: make graduationDate a date selector w/appropriate datatype
   return (
     <form>
       <div>

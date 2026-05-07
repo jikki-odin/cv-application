@@ -7,6 +7,7 @@ export default function ContactInfo({
 }) {
   const { name, phone, email } = contactInfo;
 
+  // TODO: line up form inputs with data type (e.g. phone)
   return (
     <form>
       <div>
