@@ -17,6 +17,9 @@ export default function CVEditForm({ applicant, onSave }) {
     education.graduationDate,
   );
   const [companyName, setCompanyName] = useState(workExperience.companyName);
+  const [jobResponsibilities, setJobResponsibilities] = useState(
+    workExperience.jobResponsibilities,
+  );
   const [positionTitle, setPositionTitle] = useState(
     workExperience.positionTitle,
   );
@@ -36,6 +39,7 @@ export default function CVEditForm({ applicant, onSave }) {
       },
       workExperience: {
         companyName,
+        jobResponsibilities,
         positionTitle,
         startDate,
       },
@@ -71,6 +75,27 @@ export default function CVEditForm({ applicant, onSave }) {
     setCompanyName(e.target.value);
   }
 
+  function handleAddJobResponsibility() {
+    setJobResponsibilities([
+      ...jobResponsibilities,
+      { id: crypto.randomUUID(), value: "" },
+    ]);
+  }
+
+  function handleJobResponsibilityTextChange(id, text) {
+    const newJobResponsibility = jobResponsibilities.find(
+      (jobResponsibility) => jobResponsibility.id === id,
+    );
+    newJobResponsibility.value = text;
+
+    setJobResponsibilities([
+      ...jobResponsibilities.filter(
+        (jobResponsibility) => jobResponsibility.id !== id,
+      ),
+      newJobResponsibility,
+    ]);
+  }
+
   function handlePositionTitleChange(e) {
     setPositionTitle(e.target.value);
   }
@@ -99,8 +124,15 @@ export default function CVEditForm({ applicant, onSave }) {
       </Section>
       <Section title="WorkExperience">
         <WorkExperienceForm
-          workExperience={{ companyName, positionTitle, startDate }}
+          workExperience={{
+            companyName,
+            jobResponsibilities,
+            positionTitle,
+            startDate,
+          }}
           onCompanyNameChange={handleCompanyNameChange}
+          onAddJobResponsibility={handleAddJobResponsibility}
+          onJobResponsibilityTextChange={handleJobResponsibilityTextChange}
           onPositionTitleChange={handlePositionTitleChange}
           onStartDateChange={handleStartDateChange}
         />

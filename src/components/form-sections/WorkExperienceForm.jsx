@@ -1,10 +1,19 @@
+import JobResponsibilityInput from "./JobResponsibilityInput";
+
 export default function WorkExperienceForm({
   workExperience,
   onCompanyNameChange,
+  onAddJobResponsibility,
+  onJobResponsibilityTextChange,
   onPositionTitleChange,
   onStartDateChange,
 }) {
-  const { companyName, positionTitle, startDate } = workExperience;
+  const { companyName, jobResponsibilities, positionTitle, startDate } =
+    workExperience;
+
+  function handleAddClick() {
+    onAddJobResponsibility();
+  }
 
   // TODO: add job responsibilities dynamic bullet list
   // TODO: support multiple jobs
@@ -26,6 +35,22 @@ export default function WorkExperienceForm({
           value={positionTitle}
           onChange={onPositionTitleChange}
         />
+      </div>
+      <div>
+        <label>Job Responsibilities: </label>
+        <ul>
+          {jobResponsibilities.map((jobResponsibility) => (
+            <li key={jobResponsibility.id}>
+              <JobResponsibilityInput
+                jobResponsibility={jobResponsibility}
+                onChange={onJobResponsibilityTextChange}
+              />
+            </li>
+          ))}
+        </ul>
+        <button type="button" onClick={handleAddClick}>
+          +
+        </button>
       </div>
       <div>
         <label htmlFor="startDate">Start Date: </label>

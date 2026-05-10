@@ -11,6 +11,7 @@ const baseApplicant = {
   },
   workExperience: {
     companyName: "",
+    jobResponsibilities: [],
     positionTitle: "",
     startDate: "",
   },
