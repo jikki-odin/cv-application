@@ -1,26 +1,15 @@
-import Section from "./Section";
+import ContactInfo from "./sections/ContactInfo";
+import Education from "./sections/Education";
+import WorkExperience from "./sections/WorkExperience";
 
 export default function CVDisplay({ applicant, onEdit }) {
-  const { name, phone, email } = applicant.contactInfo;
-  const { schoolName, titleOfStudy, graduationDate } = applicant.education;
-  const { companyName, positionTitle, startDate } = applicant.workExperience;
+  const { contactInfo, education, workExperience } = applicant;
+
   return (
     <>
-      <Section title="ContactInfo">
-        <p>Name: {name}</p>
-        <p>Phone: {phone}</p>
-        <p>Email: {email}</p>
-      </Section>
-      <Section title="Education">
-        <p>School: {schoolName}</p>
-        <p>Title of Study: {titleOfStudy}</p>
-        <p>Graduated: {graduationDate}</p>
-      </Section>
-      <Section title="WorkExperience">
-        <p>Company: {companyName}</p>
-        <p>Position: {positionTitle}</p>
-        <p>Started: {startDate}</p>
-      </Section>
+      <ContactInfo contactInfo={contactInfo} />
+      <Education education={education} />
+      <WorkExperience workExperience={workExperience} />
       <button type="submit" onClick={onEdit}>
         Edit
       </button>
