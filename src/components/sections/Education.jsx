@@ -1,10 +1,8 @@
 import Section from "../Section";
 
-export default function Education({
-  schoolName,
-  titleOfStudy,
-  graduationDate,
-}) {
+export default function Education({ education }) {
+  const { schoolName, titleOfStudy, graduationDate } = education;
+
   return (
     <Section title="Education">
       <p>School: {schoolName}</p>

@@ -1,10 +1,8 @@
 import Section from "../Section";
 
-export default function WorkExperience({
-  companyName,
-  positionTitle,
-  startDate,
-}) {
+export default function WorkExperience({ workExperience }) {
+  const { companyName, positionTitle, startDate } = workExperience;
+
   return (
     <Section title="WorkExperience">
       <p>Company: {companyName}</p>
