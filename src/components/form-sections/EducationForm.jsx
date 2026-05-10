@@ -13,6 +13,7 @@ export default function EducationForm({
       <div>
         <label htmlFor="schoolName">School Name: </label>
         <input
+          id="schoolName"
           name="schoolName"
           value={schoolName}
           onChange={onSchoolNameChange}
@@ -21,6 +22,7 @@ export default function EducationForm({
       <div>
         <label htmlFor="titleOfStudy">Title of Study: </label>
         <input
+          id="titleOfStudy"
           name="titleOfStudy"
           value={titleOfStudy}
           onChange={onTitleOfStudyChange}
@@ -29,6 +31,7 @@ export default function EducationForm({
       <div>
         <label htmlFor="graduationDate">Graduation Date: </label>
         <input
+          id="graduationDate"
           name="graduationDate"
           value={graduationDate}
           onChange={onGraduationDateChange}

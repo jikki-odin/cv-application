@@ -11,16 +11,17 @@ export default function ContactInfoForm({
     <form>
       <div>
         <label htmlFor="name">Name: </label>
-        <input name="name" value={name} onChange={onNameChange} />
+        <input id="name" name="name" value={name} onChange={onNameChange} />
       </div>
       <div>
         <label htmlFor="phone">Phone: </label>
-        <input name="phone" value={phone} onChange={onPhoneChange} />
+        <input id="phone" name="phone" value={phone} onChange={onPhoneChange} />
       </div>
       <div>
         <label htmlFor="email">Email Address: </label>
         <input
           type="email"
+          id="email"
           name="email"
           value={email}
           onChange={onEmailChange}

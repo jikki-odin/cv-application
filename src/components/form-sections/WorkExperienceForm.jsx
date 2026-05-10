@@ -23,6 +23,7 @@ export default function WorkExperienceForm({
       <div>
         <label htmlFor="companyName">Company Name: </label>
         <input
+          id="companyName"
           name="companyName"
           value={companyName}
           onChange={onCompanyNameChange}
@@ -31,6 +32,7 @@ export default function WorkExperienceForm({
       <div>
         <label htmlFor="positionTitle">Position Title: </label>
         <input
+          id="positionTitle"
           name="positionTitle"
           value={positionTitle}
           onChange={onPositionTitleChange}
@@ -55,6 +57,7 @@ export default function WorkExperienceForm({
       <div>
         <label htmlFor="startDate">Start Date: </label>
         <input
+          id="startDate"
           name="startDate"
           value={startDate}
           onChange={onStartDateChange}
