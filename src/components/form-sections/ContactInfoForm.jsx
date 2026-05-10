@@ -10,15 +10,15 @@ export default function ContactInfoForm({
   return (
     <form>
       <div>
-        <label for="name">Name: </label>
+        <label htmlFor="name">Name: </label>
         <input name="name" value={name} onChange={onNameChange} />
       </div>
       <div>
-        <label for="phone">Phone: </label>
+        <label htmlFor="phone">Phone: </label>
         <input name="phone" value={phone} onChange={onPhoneChange} />
       </div>
       <div>
-        <label for="email">Email Address: </label>
+        <label htmlFor="email">Email Address: </label>
         <input
           type="email"
           name="email"

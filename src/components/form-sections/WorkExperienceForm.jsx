@@ -12,7 +12,7 @@ export default function WorkExperienceForm({
   return (
     <form>
       <div>
-        <label for="companyName">Company Name: </label>
+        <label htmlFor="companyName">Company Name: </label>
         <input
           name="companyName"
           value={companyName}
@@ -20,7 +20,7 @@ export default function WorkExperienceForm({
         />
       </div>
       <div>
-        <label for="positionTitle">Position Title: </label>
+        <label htmlFor="positionTitle">Position Title: </label>
         <input
           name="positionTitle"
           value={positionTitle}
@@ -28,7 +28,7 @@ export default function WorkExperienceForm({
         />
       </div>
       <div>
-        <label for="startDate">Start Date: </label>
+        <label htmlFor="startDate">Start Date: </label>
         <input
           name="startDate"
           value={startDate}

@@ -11,7 +11,7 @@ export default function EducationForm({
   return (
     <form>
       <div>
-        <label for="schoolName">School Name: </label>
+        <label htmlFor="schoolName">School Name: </label>
         <input
           name="schoolName"
           value={schoolName}
@@ -19,7 +19,7 @@ export default function EducationForm({
         />
       </div>
       <div>
-        <label for="titleOfStudy">Title of Study: </label>
+        <label htmlFor="titleOfStudy">Title of Study: </label>
         <input
           name="titleOfStudy"
           value={titleOfStudy}
@@ -27,7 +27,7 @@ export default function EducationForm({
         />
       </div>
       <div>
-        <label for="graduationDate">Graduation Date: </label>
+        <label htmlFor="graduationDate">Graduation Date: </label>
         <input
           name="graduationDate"
           value={graduationDate}
