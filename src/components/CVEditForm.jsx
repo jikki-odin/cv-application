@@ -84,6 +84,14 @@ export default function CVEditForm({ applicant, onSave }) {
     ]);
   }
 
+  function handleDeleteJobResponsibility(id) {
+    setJobResponsibilities(
+      jobResponsibilities.filter(
+        (jobResponsibility) => jobResponsibility.id !== id,
+      ),
+    );
+  }
+
   function handleJobResponsibilityTextChange(id, text) {
     const newJobResponsibility = jobResponsibilities.find(
       (jobResponsibility) => jobResponsibility.id === id,
@@ -139,6 +147,7 @@ export default function CVEditForm({ applicant, onSave }) {
           }}
           onCompanyNameChange={handleCompanyNameChange}
           onAddJobResponsibility={handleAddJobResponsibility}
+          onDeleteJobResponsibility={handleDeleteJobResponsibility}
           onJobResponsibilityTextChange={handleJobResponsibilityTextChange}
           onPositionTitleChange={handlePositionTitleChange}
           onStartDateChange={handleStartDateChange}

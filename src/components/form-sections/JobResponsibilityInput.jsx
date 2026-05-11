@@ -1,6 +1,7 @@
 export default function JobResponsibilityInput({
   jobResponsibility,
   onChange,
+  onDelete,
 }) {
   const { id, value } = jobResponsibility;
 
@@ -8,10 +9,16 @@ export default function JobResponsibilityInput({
     onChange(id, e.target.value);
   }
 
+  function handleDeleteClick() {
+    onDelete(id);
+  }
+
   return (
     <>
       <input id={id} type="text" value={value} onChange={handleTextChange} />
-      <button type="button">X</button>
+      <button type="button" onClick={handleDeleteClick}>
+        X
+      </button>
     </>
   );
 }

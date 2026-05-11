@@ -4,6 +4,7 @@ export default function WorkExperienceForm({
   workExperience,
   onCompanyNameChange,
   onAddJobResponsibility,
+  onDeleteJobResponsibility,
   onJobResponsibilityTextChange,
   onPositionTitleChange,
   onStartDateChange,
@@ -23,6 +24,7 @@ export default function WorkExperienceForm({
 
   // TODO: support multiple jobs
   // TODO: add some sort of "I currently work here" button
+  // TODO: shore up brittle job responsibility form logic (e.g. don't allow multiple empties etc.)
   return (
     <form>
       <div>
@@ -53,6 +55,7 @@ export default function WorkExperienceForm({
               <JobResponsibilityInput
                 jobResponsibility={jobResponsibility}
                 onChange={onJobResponsibilityTextChange}
+                onDelete={onDeleteJobResponsibility}
               />
             </li>
           ))}

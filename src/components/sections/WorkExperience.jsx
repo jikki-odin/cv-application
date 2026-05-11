@@ -16,9 +16,11 @@ export default function WorkExperience({ workExperience }) {
       <p>Position: {positionTitle}</p>
       <p>Job Responsibilities:</p>
       <ul>
-        {jobResponsibilities.map(({ id, value }) => (
-          <li key={id}>{value}</li>
-        ))}
+        {jobResponsibilities
+          .filter(({ value }) => !!value)
+          .map(({ id, value }) => (
+            <li key={id}>{value}</li>
+          ))}
       </ul>
       <p>
         Date Range:{" "}
