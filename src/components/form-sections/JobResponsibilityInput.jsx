@@ -10,7 +10,7 @@ export default function JobResponsibilityInput({
 
   return (
     <>
-      <input id={id} value={value} onChange={handleTextChange} />
+      <input id={id} type="text" value={value} onChange={handleTextChange} />
       <button type="button">X</button>
     </>
   );

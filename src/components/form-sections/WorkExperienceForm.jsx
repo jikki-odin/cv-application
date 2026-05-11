@@ -30,6 +30,7 @@ export default function WorkExperienceForm({
         <input
           id="companyName"
           name="companyName"
+          type="text"
           value={companyName}
           onChange={onCompanyNameChange}
         />
@@ -39,6 +40,7 @@ export default function WorkExperienceForm({
         <input
           id="positionTitle"
           name="positionTitle"
+          type="text"
           value={positionTitle}
           onChange={onPositionTitleChange}
         />
