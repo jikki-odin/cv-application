@@ -24,6 +24,7 @@ export default function CVEditForm({ applicant, onSave }) {
     workExperience.positionTitle,
   );
   const [startDate, setStartDate] = useState(workExperience.startDate);
+  const [endDate, setEndDate] = useState(workExperience.endDate);
 
   function submitNewApplicant() {
     onSave({
@@ -42,6 +43,7 @@ export default function CVEditForm({ applicant, onSave }) {
         jobResponsibilities,
         positionTitle,
         startDate,
+        endDate,
       },
     });
   }
@@ -104,6 +106,10 @@ export default function CVEditForm({ applicant, onSave }) {
     setStartDate(e.target.value);
   }
 
+  function handleEndDateChange(e) {
+    setEndDate(e.target.value);
+  }
+
   return (
     <>
       <Section title="Contact Info">
@@ -129,12 +135,14 @@ export default function CVEditForm({ applicant, onSave }) {
             jobResponsibilities,
             positionTitle,
             startDate,
+            endDate,
           }}
           onCompanyNameChange={handleCompanyNameChange}
           onAddJobResponsibility={handleAddJobResponsibility}
           onJobResponsibilityTextChange={handleJobResponsibilityTextChange}
           onPositionTitleChange={handlePositionTitleChange}
           onStartDateChange={handleStartDateChange}
+          onEndDateChange={handleEndDateChange}
         />
       </Section>
       <button type="submit" onClick={submitNewApplicant}>

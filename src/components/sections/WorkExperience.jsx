@@ -1,8 +1,14 @@
+import { formatDate } from "../../utils";
 import Section from "../Section";
 
 export default function WorkExperience({ workExperience }) {
-  const { companyName, jobResponsibilities, positionTitle, startDate } =
-    workExperience;
+  const {
+    companyName,
+    jobResponsibilities,
+    positionTitle,
+    startDate,
+    endDate,
+  } = workExperience;
 
   return (
     <Section title="WorkExperience">
@@ -14,7 +20,12 @@ export default function WorkExperience({ workExperience }) {
           <li key={id}>{value}</li>
         ))}
       </ul>
-      <p>Started: {startDate}</p>
+      <p>
+        Date Range:{" "}
+        {startDate && endDate
+          ? `${formatDate(startDate)} - ${formatDate(endDate)}`
+          : ""}
+      </p>
     </Section>
   );
 }

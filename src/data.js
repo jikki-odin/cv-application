@@ -14,6 +14,7 @@ const baseApplicant = {
     jobResponsibilities: [],
     positionTitle: "",
     startDate: "",
+    endDate: "",
   },
 };
 

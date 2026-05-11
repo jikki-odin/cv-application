@@ -7,7 +7,6 @@ export default function EducationForm({
   const { schoolName, titleOfStudy, graduationDate } = education;
 
   // TODO: support multiple education sources with dynamic add
-  // TODO: make graduationDate a date selector w/appropriate datatype
   return (
     <form>
       <div>
@@ -32,6 +31,7 @@ export default function EducationForm({
         <label htmlFor="graduationDate">Graduation Date: </label>
         <input
           id="graduationDate"
+          type="date"
           name="graduationDate"
           value={graduationDate}
           onChange={onGraduationDateChange}

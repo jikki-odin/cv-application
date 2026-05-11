@@ -1,3 +1,4 @@
+import { formatDate } from "../../utils";
 import Section from "../Section";
 
 export default function Education({ education }) {
@@ -7,7 +8,7 @@ export default function Education({ education }) {
     <Section title="Education">
       <p>School: {schoolName}</p>
       <p>Title of Study: {titleOfStudy}</p>
-      <p>Graduated: {graduationDate}</p>
+      <p>Graduated: {graduationDate ? formatDate(graduationDate) : ""}</p>
     </Section>
   );
 }

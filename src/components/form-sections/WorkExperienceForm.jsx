@@ -7,17 +7,22 @@ export default function WorkExperienceForm({
   onJobResponsibilityTextChange,
   onPositionTitleChange,
   onStartDateChange,
+  onEndDateChange,
 }) {
-  const { companyName, jobResponsibilities, positionTitle, startDate } =
-    workExperience;
+  const {
+    companyName,
+    jobResponsibilities,
+    positionTitle,
+    startDate,
+    endDate,
+  } = workExperience;
 
   function handleAddClick() {
     onAddJobResponsibility();
   }
 
-  // TODO: add job responsibilities dynamic bullet list
   // TODO: support multiple jobs
-  // TODO: handle dates with inputs and date types
+  // TODO: add some sort of "I currently work here" button
   return (
     <form>
       <div>
@@ -59,8 +64,19 @@ export default function WorkExperienceForm({
         <input
           id="startDate"
           name="startDate"
+          type="date"
           value={startDate}
           onChange={onStartDateChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="endDate">End Date: </label>
+        <input
+          id="endDate"
+          name="endDate"
+          type="date"
+          value={endDate}
+          onChange={onEndDateChange}
         />
       </div>
     </form>
