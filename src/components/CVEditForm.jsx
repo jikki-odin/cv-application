@@ -1,13 +1,15 @@
 import { useState } from "react";
 
 import ContactInfoForm from "./form-sections/ContactInfoForm";
-import EducationForm from "./form-sections/EducationForm";
+import EducationFormGroup from "./form-sections/EducationFormGroup";
 import WorkExperienceForm from "./form-sections/WorkExperienceForm";
 import Section from "./Section";
 
 export default function CVEditForm({ applicant, onSave }) {
   const [contactInfo, setContactInfo] = useState(applicant.contactInfo);
-  const [education, setEducation] = useState(applicant.education);
+  const [educationPrograms, setEducationPrograms] = useState(
+    applicant.educationPrograms,
+  );
   const [workExperience, setWorkExperience] = useState(
     applicant.workExperience,
   );
@@ -15,7 +17,7 @@ export default function CVEditForm({ applicant, onSave }) {
   function submitNewApplicant() {
     onSave({
       contactInfo,
-      education,
+      educationPrograms,
       workExperience,
     });
   }
@@ -24,8 +26,8 @@ export default function CVEditForm({ applicant, onSave }) {
     setContactInfo(newContactInfo);
   }
 
-  function handleEducationChange(newEducation) {
-    setEducation(newEducation);
+  function handleEducationProgramsChange(newEducationPrograms) {
+    setEducationPrograms(newEducationPrograms);
   }
 
   function handleWorkExperienceChange(newWorkExperience) {
@@ -41,7 +43,10 @@ export default function CVEditForm({ applicant, onSave }) {
         />
       </Section>
       <Section title="Education">
-        <EducationForm education={education} onChange={handleEducationChange} />
+        <EducationFormGroup
+          educationPrograms={educationPrograms}
+          onChange={handleEducationProgramsChange}
+        />
       </Section>
       <Section title="Work Experience">
         <WorkExperienceForm

@@ -1,14 +1,14 @@
 import ContactInfo from "./sections/ContactInfo";
-import Education from "./sections/Education";
+import EducationGroup from "./sections/EducationGroup";
 import WorkExperience from "./sections/WorkExperience";
 
 export default function CVDisplay({ applicant, onEdit }) {
-  const { contactInfo, education, workExperience } = applicant;
+  const { contactInfo, educationPrograms, workExperience } = applicant;
 
   return (
     <>
       <ContactInfo contactInfo={contactInfo} />
-      <Education education={education} />
+      <EducationGroup educationPrograms={educationPrograms} />
       <WorkExperience workExperience={workExperience} />
       <button type="submit" onClick={onEdit}>
         Edit

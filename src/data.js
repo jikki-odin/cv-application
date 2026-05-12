@@ -4,11 +4,7 @@ const baseApplicant = {
     phone: "",
     email: "",
   },
-  education: {
-    schoolName: "",
-    titleOfStudy: "",
-    graduationDate: "",
-  },
+  educationPrograms: [],
   workExperience: {
     companyName: "",
     jobResponsibilities: [],
