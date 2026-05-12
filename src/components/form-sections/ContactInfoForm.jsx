@@ -9,34 +9,40 @@ export default function ContactInfoForm({
   return (
     <form>
       <div>
-        <label htmlFor="name">Name: </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          value={name}
-          onChange={onNameChange}
-        />
+        <label htmlFor="name">
+          Name:{" "}
+          <input
+            id="name"
+            name="name"
+            type="text"
+            value={name}
+            onChange={onNameChange}
+          />
+        </label>
       </div>
       <div>
-        <label htmlFor="phone">Phone: </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          value={phone}
-          onChange={onPhoneChange}
-        />
+        <label htmlFor="phone">
+          Phone:{" "}
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            value={phone}
+            onChange={onPhoneChange}
+          />
+        </label>
       </div>
       <div>
-        <label htmlFor="email">Email Address: </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={email}
-          onChange={onEmailChange}
-        />
+        <label htmlFor="email">
+          Email Address:{" "}
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={onEmailChange}
+          />
+        </label>
       </div>
     </form>
   );

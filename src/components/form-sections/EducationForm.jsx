@@ -10,34 +10,40 @@ export default function EducationForm({
   return (
     <form>
       <div>
-        <label htmlFor="schoolName">School Name: </label>
-        <input
-          id="schoolName"
-          name="schoolName"
-          type="text"
-          value={schoolName}
-          onChange={onSchoolNameChange}
-        />
+        <label htmlFor="schoolName">
+          School Name:{" "}
+          <input
+            id="schoolName"
+            name="schoolName"
+            type="text"
+            value={schoolName}
+            onChange={onSchoolNameChange}
+          />
+        </label>
       </div>
       <div>
-        <label htmlFor="titleOfStudy">Title of Study: </label>
-        <input
-          id="titleOfStudy"
-          name="titleOfStudy"
-          type="text"
-          value={titleOfStudy}
-          onChange={onTitleOfStudyChange}
-        />
+        <label htmlFor="titleOfStudy">
+          Title of Study:{" "}
+          <input
+            id="titleOfStudy"
+            name="titleOfStudy"
+            type="text"
+            value={titleOfStudy}
+            onChange={onTitleOfStudyChange}
+          />
+        </label>
       </div>
       <div>
-        <label htmlFor="graduationDate">Graduation Date: </label>
-        <input
-          id="graduationDate"
-          name="graduationDate"
-          type="date"
-          value={graduationDate}
-          onChange={onGraduationDateChange}
-        />
+        <label htmlFor="graduationDate">
+          Graduation Date:{" "}
+          <input
+            id="graduationDate"
+            name="graduationDate"
+            type="date"
+            value={graduationDate}
+            onChange={onGraduationDateChange}
+          />
+        </label>
       </div>
     </form>
   );
