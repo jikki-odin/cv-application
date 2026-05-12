@@ -1,10 +1,26 @@
-export default function EducationForm({
-  education,
-  onSchoolNameChange,
-  onTitleOfStudyChange,
-  onGraduationDateChange,
-}) {
+export default function EducationForm({ education, onChange }) {
   const { schoolName, titleOfStudy, graduationDate } = education;
+
+  function handleSchoolNameChange(e) {
+    onChange({
+      ...education,
+      schoolName: e.target.value,
+    });
+  }
+
+  function handleTitleOfStudyChange(e) {
+    onChange({
+      ...education,
+      titleOfStudy: e.target.value,
+    });
+  }
+
+  function handleGraduationDateChange(e) {
+    onChange({
+      ...education,
+      graduationDate: e.target.value,
+    });
+  }
 
   // TODO: support multiple education sources with dynamic add
   return (
@@ -17,7 +33,7 @@ export default function EducationForm({
             name="schoolName"
             type="text"
             value={schoolName}
-            onChange={onSchoolNameChange}
+            onChange={handleSchoolNameChange}
           />
         </label>
       </div>
@@ -29,7 +45,7 @@ export default function EducationForm({
             name="titleOfStudy"
             type="text"
             value={titleOfStudy}
-            onChange={onTitleOfStudyChange}
+            onChange={handleTitleOfStudyChange}
           />
         </label>
       </div>
@@ -41,7 +57,7 @@ export default function EducationForm({
             name="graduationDate"
             type="date"
             value={graduationDate}
-            onChange={onGraduationDateChange}
+            onChange={handleGraduationDateChange}
           />
         </label>
       </div>

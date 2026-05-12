@@ -1,27 +1,95 @@
+import { useState } from "react";
+
 import JobResponsibilityInput from "./JobResponsibilityInput";
 
-export default function WorkExperienceForm({
-  workExperience,
-  onCompanyNameChange,
-  onAddJobResponsibility,
-  onDeleteJobResponsibility,
-  onJobResponsibilityTextChange,
-  onPositionTitleChange,
-  onStartDateChange,
-  onEndDateChange,
-  onCurrentRoleChecked,
-}) {
+export default function WorkExperienceForm({ workExperience, onChange }) {
   const {
     companyName,
     jobResponsibilities,
     positionTitle,
     startDate,
     endDate,
-    isCurrentRole,
   } = workExperience;
 
-  function handleAddClick() {
-    onAddJobResponsibility();
+  const [isCurrentRole, setIsCurrentRole] = useState(endDate === "Present");
+
+  function handleCompanyNameChange(e) {
+    onChange({
+      ...workExperience,
+      companyName: e.target.value,
+    });
+  }
+
+  function handleAddJobResponsibility() {
+    onChange({
+      ...workExperience,
+      jobResponsibilities: [
+        ...jobResponsibilities,
+        { id: crypto.randomUUID(), value: "" },
+      ],
+    });
+  }
+
+  function handleDeleteJobResponsibility(id) {
+    onChange({
+      ...workExperience,
+      jobResponsibilities: jobResponsibilities.filter(
+        (jobResponsibility) => jobResponsibility.id !== id,
+      ),
+    });
+  }
+
+  function handleJobResponsibilityTextChange(id, text) {
+    const newJobResponsibility = jobResponsibilities.find(
+      (jobResponsibility) => jobResponsibility.id === id,
+    );
+    newJobResponsibility.value = text;
+
+    onChange({
+      ...workExperience,
+      jobResponsibilities: [
+        ...jobResponsibilities.filter(
+          (jobResponsibility) => jobResponsibility.id !== id,
+        ),
+        newJobResponsibility,
+      ],
+    });
+  }
+
+  function handlePositionTitleChange(e) {
+    onChange({
+      ...workExperience,
+      positionTitle: e.target.value,
+    });
+  }
+
+  function handleStartDateChange(e) {
+    onChange({
+      ...workExperience,
+      startDate: e.target.value,
+    });
+  }
+
+  function handleEndDateChange(e) {
+    onChange({
+      ...workExperience,
+      endDate: e.target.value,
+    });
+  }
+
+  function handleCurrentRoleCheck(isChecked) {
+    setIsCurrentRole(isChecked);
+    if (isChecked) {
+      onChange({
+        ...workExperience,
+        endDate: "Present",
+      });
+    } else {
+      onChange({
+        ...workExperience,
+        endDate: "",
+      });
+    }
   }
 
   // TODO: support multiple jobs
@@ -37,7 +105,7 @@ export default function WorkExperienceForm({
             name="companyName"
             type="text"
             value={companyName}
-            onChange={onCompanyNameChange}
+            onChange={handleCompanyNameChange}
           />
         </label>
       </div>
@@ -49,7 +117,7 @@ export default function WorkExperienceForm({
             name="positionTitle"
             type="text"
             value={positionTitle}
-            onChange={onPositionTitleChange}
+            onChange={handlePositionTitleChange}
           />
         </label>
       </div>
@@ -61,13 +129,13 @@ export default function WorkExperienceForm({
               <li key={jobResponsibility.id}>
                 <JobResponsibilityInput
                   jobResponsibility={jobResponsibility}
-                  onChange={onJobResponsibilityTextChange}
-                  onDelete={onDeleteJobResponsibility}
+                  onChange={handleJobResponsibilityTextChange}
+                  onDelete={handleDeleteJobResponsibility}
                 />
               </li>
             ))}
           </ul>
-          <button type="button" onClick={handleAddClick}>
+          <button type="button" onClick={handleAddJobResponsibility}>
             +
           </button>
         </label>
@@ -80,7 +148,7 @@ export default function WorkExperienceForm({
             name="startDate"
             type="date"
             value={startDate}
-            onChange={onStartDateChange}
+            onChange={handleStartDateChange}
           />
         </label>
       </div>
@@ -92,7 +160,7 @@ export default function WorkExperienceForm({
               type="radio"
               value="yes"
               checked={isCurrentRole}
-              onChange={() => onCurrentRoleChecked(true)}
+              onChange={() => handleCurrentRoleCheck(true)}
             />
             Yes
           </label>
@@ -101,7 +169,7 @@ export default function WorkExperienceForm({
               type="radio"
               value="no"
               checked={!isCurrentRole}
-              onChange={() => onCurrentRoleChecked(false)}
+              onChange={() => handleCurrentRoleCheck(false)}
             />
             No
           </label>
@@ -116,7 +184,7 @@ export default function WorkExperienceForm({
               name="endDate"
               type="date"
               value={endDate}
-              onChange={onEndDateChange}
+              onChange={handleEndDateChange}
             />
           </label>
         </div>
