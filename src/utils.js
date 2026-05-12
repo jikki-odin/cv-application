@@ -14,6 +14,10 @@ const monthStrings = [
 ];
 
 export function formatDate(dateString) {
+  if (dateString === "Present") {
+    return dateString;
+  }
+
   const date = new Date(dateString);
   const monthIndex = date.getMonth();
   const monthString = monthStrings[monthIndex];

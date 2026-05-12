@@ -25,6 +25,7 @@ export default function CVEditForm({ applicant, onSave }) {
   );
   const [startDate, setStartDate] = useState(workExperience.startDate);
   const [endDate, setEndDate] = useState(workExperience.endDate);
+  const [isCurrentRole, setIsCurrentRole] = useState(true);
 
   function submitNewApplicant() {
     onSave({
@@ -43,7 +44,7 @@ export default function CVEditForm({ applicant, onSave }) {
         jobResponsibilities,
         positionTitle,
         startDate,
-        endDate,
+        endDate: isCurrentRole ? "Present" : endDate,
       },
     });
   }
@@ -118,6 +119,10 @@ export default function CVEditForm({ applicant, onSave }) {
     setEndDate(e.target.value);
   }
 
+  function handleCurrentRoleCheck(isChecked) {
+    setIsCurrentRole(isChecked);
+  }
+
   return (
     <>
       <Section title="Contact Info">
@@ -136,7 +141,7 @@ export default function CVEditForm({ applicant, onSave }) {
           onGraduationDateChange={handleGraduationDateChange}
         />
       </Section>
-      <Section title="WorkExperience">
+      <Section title="Work Experience">
         <WorkExperienceForm
           workExperience={{
             companyName,
@@ -144,6 +149,7 @@ export default function CVEditForm({ applicant, onSave }) {
             positionTitle,
             startDate,
             endDate,
+            isCurrentRole,
           }}
           onCompanyNameChange={handleCompanyNameChange}
           onAddJobResponsibility={handleAddJobResponsibility}
@@ -152,6 +158,7 @@ export default function CVEditForm({ applicant, onSave }) {
           onPositionTitleChange={handlePositionTitleChange}
           onStartDateChange={handleStartDateChange}
           onEndDateChange={handleEndDateChange}
+          onCurrentRoleChecked={handleCurrentRoleCheck}
         />
       </Section>
       <button type="submit" onClick={submitNewApplicant}>

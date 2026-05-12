@@ -9,6 +9,7 @@ export default function WorkExperienceForm({
   onPositionTitleChange,
   onStartDateChange,
   onEndDateChange,
+  onCurrentRoleChecked,
 }) {
   const {
     companyName,
@@ -16,6 +17,7 @@ export default function WorkExperienceForm({
     positionTitle,
     startDate,
     endDate,
+    isCurrentRole,
   } = workExperience;
 
   function handleAddClick() {
@@ -23,7 +25,7 @@ export default function WorkExperienceForm({
   }
 
   // TODO: support multiple jobs
-  // TODO: add some sort of "I currently work here" button
+  // TODO: validate best practice on current role logic
   // TODO: shore up brittle job responsibility form logic (e.g. don't allow multiple empties etc.)
   return (
     <form>
@@ -75,15 +77,38 @@ export default function WorkExperienceForm({
         />
       </div>
       <div>
-        <label htmlFor="endDate">End Date: </label>
-        <input
-          id="endDate"
-          name="endDate"
-          type="date"
-          value={endDate}
-          onChange={onEndDateChange}
-        />
+        <label>Do you still work here? </label>
+        <label>
+          <input
+            type="radio"
+            value="yes"
+            checked={isCurrentRole}
+            onChange={() => onCurrentRoleChecked(true)}
+          />
+          Yes
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="no"
+            checked={!isCurrentRole}
+            onChange={() => onCurrentRoleChecked(false)}
+          />
+          No
+        </label>
       </div>
+      {!isCurrentRole && (
+        <div>
+          <label htmlFor="endDate">End Date: </label>
+          <input
+            id="endDate"
+            name="endDate"
+            type="date"
+            value={endDate}
+            onChange={onEndDateChange}
+          />
+        </div>
+      )}
     </form>
   );
 }
