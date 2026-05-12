@@ -1,24 +1,10 @@
 export default function ContactInfoForm({ contactInfo, onChange }) {
   const { name, phone, email } = contactInfo;
 
-  function handleNameChange(e) {
+  function handleChange(e) {
     onChange({
       ...contactInfo,
-      name: e.target.value,
-    });
-  }
-
-  function handlePhoneChange(e) {
-    onChange({
-      ...contactInfo,
-      phone: e.target.value,
-    });
-  }
-
-  function handleEmailChange(e) {
-    onChange({
-      ...contactInfo,
-      email: e.target.value,
+      [e.target.name]: e.target.value,
     });
   }
 
@@ -32,7 +18,7 @@ export default function ContactInfoForm({ contactInfo, onChange }) {
             name="name"
             type="text"
             value={name}
-            onChange={handleNameChange}
+            onChange={handleChange}
           />
         </label>
       </div>
@@ -44,7 +30,7 @@ export default function ContactInfoForm({ contactInfo, onChange }) {
             name="phone"
             type="tel"
             value={phone}
-            onChange={handlePhoneChange}
+            onChange={handleChange}
           />
         </label>
       </div>
@@ -56,7 +42,7 @@ export default function ContactInfoForm({ contactInfo, onChange }) {
             id="email"
             name="email"
             value={email}
-            onChange={handleEmailChange}
+            onChange={handleChange}
           />
         </label>
       </div>

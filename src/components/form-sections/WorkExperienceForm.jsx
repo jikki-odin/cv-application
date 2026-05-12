@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import JobResponsibilityInput from "./JobResponsibilityInput";
 
 export default function WorkExperienceForm({ workExperience, onChange }) {
@@ -11,12 +9,12 @@ export default function WorkExperienceForm({ workExperience, onChange }) {
     endDate,
   } = workExperience;
 
-  const [isCurrentRole, setIsCurrentRole] = useState(endDate === "Present");
+  const isCurrentRole = endDate === "Present";
 
-  function handleCompanyNameChange(e) {
+  function handleChange(e) {
     onChange({
       ...workExperience,
-      companyName: e.target.value,
+      [e.target.name]: e.target.value,
     });
   }
 
@@ -40,10 +38,12 @@ export default function WorkExperienceForm({ workExperience, onChange }) {
   }
 
   function handleJobResponsibilityTextChange(id, text) {
-    const newJobResponsibility = jobResponsibilities.find(
-      (jobResponsibility) => jobResponsibility.id === id,
-    );
-    newJobResponsibility.value = text;
+    const newJobResponsibility = {
+      ...jobResponsibilities.find(
+        (jobResponsibility) => jobResponsibility.id === id,
+      ),
+      value: text,
+    };
 
     onChange({
       ...workExperience,
@@ -56,29 +56,7 @@ export default function WorkExperienceForm({ workExperience, onChange }) {
     });
   }
 
-  function handlePositionTitleChange(e) {
-    onChange({
-      ...workExperience,
-      positionTitle: e.target.value,
-    });
-  }
-
-  function handleStartDateChange(e) {
-    onChange({
-      ...workExperience,
-      startDate: e.target.value,
-    });
-  }
-
-  function handleEndDateChange(e) {
-    onChange({
-      ...workExperience,
-      endDate: e.target.value,
-    });
-  }
-
   function handleCurrentRoleCheck(isChecked) {
-    setIsCurrentRole(isChecked);
     if (isChecked) {
       onChange({
         ...workExperience,
@@ -105,7 +83,7 @@ export default function WorkExperienceForm({ workExperience, onChange }) {
             name="companyName"
             type="text"
             value={companyName}
-            onChange={handleCompanyNameChange}
+            onChange={handleChange}
           />
         </label>
       </div>
@@ -117,7 +95,7 @@ export default function WorkExperienceForm({ workExperience, onChange }) {
             name="positionTitle"
             type="text"
             value={positionTitle}
-            onChange={handlePositionTitleChange}
+            onChange={handleChange}
           />
         </label>
       </div>
@@ -148,7 +126,7 @@ export default function WorkExperienceForm({ workExperience, onChange }) {
             name="startDate"
             type="date"
             value={startDate}
-            onChange={handleStartDateChange}
+            onChange={handleChange}
           />
         </label>
       </div>
@@ -184,7 +162,7 @@ export default function WorkExperienceForm({ workExperience, onChange }) {
               name="endDate"
               type="date"
               value={endDate}
-              onChange={handleEndDateChange}
+              onChange={handleChange}
             />
           </label>
         </div>

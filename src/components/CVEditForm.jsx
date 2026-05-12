@@ -49,7 +49,7 @@ export default function CVEditForm({ applicant, onSave }) {
           onChange={handleWorkExperienceChange}
         />
       </Section>
-      <button type="submit" onClick={submitNewApplicant}>
+      <button type="button" onClick={submitNewApplicant}>
         Save
       </button>
     </>
